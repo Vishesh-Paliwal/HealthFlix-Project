@@ -1,98 +1,49 @@
-import React, { useState, useEffect } from 'react';
+// src/App.js
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import CommentList from './components/CommentList';
 import CommentForm from './components/CommentForm';
+import { addComment, deleteComment, editComment, addReply, deleteReply, editReply } from './actions';
 
 function App() {
-  const [comments, setComments] = useState([]);
+  const comments = useSelector(state => state.comments);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-    const convertedComments = savedComments.map(comment => ({
-      ...comment,
-      date: new Date(comment.date),
-      replies: comment.replies.map(reply => ({
-        ...reply,
-        date: new Date(reply.date),
-      }))
-    }));
-    setComments(convertedComments);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('comments', JSON.stringify(comments));
-  }, [comments]);
-
-  const addComment = (name, text) => {
-    const newComment = {
-      id: Date.now(),
-      name,
-      text,
-      date: new Date(),
-      replies: []
-    };
-    setComments([...comments, newComment]);
+  const handleAddComment = (name, text) => {
+    dispatch(addComment(name, text));
   };
 
-  const deleteComment = (id) => {
-    const updatedComments = comments.filter(comment => comment.id !== id);
-    setComments(updatedComments);
+  const handleDeleteComment = (id) => {
+    dispatch(deleteComment(id));
   };
 
-  const editComment = (id, newText) => {
-    const updatedComments = comments.map(comment =>
-      comment.id === id ? { ...comment, text: newText } : comment
-    );
-    setComments(updatedComments);
+  const handleEditComment = (id, text) => {
+    dispatch(editComment(id, text));
   };
 
-  const addReply = (commentId, name, text) => {
-    const newReply = {
-      id: Date.now(),
-      name,
-      text,
-      date: new Date()
-    };
-    const updatedComments = comments.map(comment =>
-      comment.id === commentId ? { ...comment, replies: [...comment.replies, newReply] } : comment
-    );
-    setComments(updatedComments);
+  const handleAddReply = (commentId, name, text) => {
+    dispatch(addReply(commentId, name, text));
   };
 
-  const deleteReply = (commentId, replyId) => {
-    const updatedComments = comments.map(comment => {
-      if (comment.id === commentId) {
-        const updatedReplies = comment.replies.filter(reply => reply.id !== replyId);
-        return { ...comment, replies: updatedReplies };
-      }
-      return comment;
-    });
-    setComments(updatedComments);
+  const handleDeleteReply = (commentId, replyId) => {
+    dispatch(deleteReply(commentId, replyId));
   };
 
-  const editReply = (commentId, replyId, newText) => {
-    const updatedComments = comments.map(comment => {
-      if (comment.id === commentId) {
-        const updatedReplies = comment.replies.map(reply =>
-          reply.id === replyId ? { ...reply, text: newText } : reply
-        );
-        return { ...comment, replies: updatedReplies };
-      }
-      return comment;
-    });
-    setComments(updatedComments);
+  const handleEditReply = (commentId, replyId, text) => {
+    dispatch(editReply(commentId, replyId, text));
   };
 
   return (
     <div className="App">
       <h1>Comments Section</h1>
-      <CommentForm addComment={addComment} />
+      <CommentForm addComment={handleAddComment} />
       <CommentList
         comments={comments}
-        deleteComment={deleteComment}
-        editComment={editComment}
-        addReply={addReply}
-        deleteReply={deleteReply}
-        editReply={editReply}
+        deleteComment={handleDeleteComment}
+        editComment={handleEditComment}
+        addReply={handleAddReply}
+        deleteReply={handleDeleteReply}
+        editReply={handleEditReply}
       />
     </div>
   );
