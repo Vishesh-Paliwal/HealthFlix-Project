@@ -3,10 +3,11 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CommentList from './components/CommentList';
 import CommentForm from './components/CommentForm';
-import { addComment, deleteComment, editComment, addReply, deleteReply, editReply } from './actions';
+import { addComment, deleteComment, editComment, addReply, deleteReply, editReply, setSortOrder } from './actions';
 
 function App() {
   const comments = useSelector(state => state.comments);
+  const sortOrder = useSelector(state => state.sortOrder);
   const dispatch = useDispatch();
 
   const handleAddComment = (name, text) => {
@@ -33,10 +34,23 @@ function App() {
     dispatch(editReply(commentId, replyId, text));
   };
 
+  const handleSortChange = (e) => {
+    dispatch(setSortOrder(e.target.value));
+  };
+
   return (
     <div className="App">
       <h1>Comments Section</h1>
       <CommentForm addComment={handleAddComment} />
+
+      <div className="sort-options">
+        <label>Sort by:</label>
+        <select value={sortOrder} onChange={handleSortChange}>
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+        </select>
+      </div>
+
       <CommentList
         comments={comments}
         deleteComment={handleDeleteComment}

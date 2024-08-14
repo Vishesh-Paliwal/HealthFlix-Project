@@ -1,8 +1,8 @@
-// src/reducers.js
-import { ADD_COMMENT, DELETE_COMMENT, EDIT_COMMENT, ADD_REPLY, DELETE_REPLY, EDIT_REPLY } from './actions';
+import { ADD_COMMENT, DELETE_COMMENT, EDIT_COMMENT, ADD_REPLY, DELETE_REPLY, EDIT_REPLY, SET_SORT_ORDER } from './actions';
 
 const initialState = {
   comments: [],
+  sortOrder: 'newest', 
 };
 
 function rootReducer(state = initialState, action) {
@@ -77,9 +77,36 @@ function rootReducer(state = initialState, action) {
             : comment
         ),
       };
+    case SET_SORT_ORDER:
+      return {
+        ...state,
+        sortOrder: action.payload,
+        comments: sortComments(state.comments, action.payload),
+      };
     default:
       return state;
   }
+}
+
+function sortComments(comments, order) {
+  const sortedComments = [...comments].sort((a, b) => {
+    if (order === 'newest') {
+      return new Date(b.date) - new Date(a.date);
+    } else {
+      return new Date(a.date) - new Date(b.date);
+    }
+  });
+
+  return sortedComments.map(comment => ({
+    ...comment,
+    replies: comment.replies.sort((a, b) => {
+      if (order === 'newest') {
+        return new Date(b.date) - new Date(a.date);
+      } else {
+        return new Date(a.date) - new Date(b.date);
+      }
+    }),
+  }));
 }
 
 export default rootReducer;

@@ -4,6 +4,13 @@ export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const ADD_REPLY = 'ADD_REPLY';
 export const DELETE_REPLY = 'DELETE_REPLY';
 export const EDIT_REPLY = 'EDIT_REPLY';
+export const SET_SORT_ORDER = 'SET_SORT_ORDER';
+
+export const setSortOrder = (order) => ({
+  type: SET_SORT_ORDER,
+  payload: order,
+});
+
 
 export const addComment = (name, text) => ({
   type: ADD_COMMENT,

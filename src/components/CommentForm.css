@@ -3,7 +3,7 @@
     margin-bottom: 5px;
     height: 22vh;
     width: 50vw;
-    background-color: gray;
+    background-color: rgb(224, 213, 213);
     padding: 5px;
     border-radius: 5px;
 }
@@ -26,4 +26,11 @@ textarea{
 
 button{
     margin: 0 20px 20px 20px;
+}
+
+#post{
+    background-color: rgb(43, 177, 218);
+    border-radius: 5px;
+    height: 30px;
+    margin: 0 20px 20px 85%;
 }

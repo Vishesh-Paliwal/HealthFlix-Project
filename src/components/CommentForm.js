@@ -30,7 +30,7 @@ function CommentForm({ addComment }) {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <button type="submit">Add Comment</button>
+      <button id='post' type="submit">POST</button>
     </form>
     </div>
   );
