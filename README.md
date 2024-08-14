@@ -3,6 +3,10 @@
 
 This project is a comments section built with React, Redux, and localStorage. It allows users to add, edit, delete, and reply to comments. Replies are nested directly under their parent comments, and both comments and replies can be sorted by date and time. The application persists its state using localStorage, ensuring that comments and sorting preferences are saved even after refreshing the page.
 
+# Video-Guide :
+[Screencast from 14-08-24 06:15:18 PM IST.webm](https://github.com/user-attachments/assets/fb769729-db80-4c1b-8705-9b3237324e6e)
+
+
 # Features
 
    - Add Comments: Users can add new comments to the section.
