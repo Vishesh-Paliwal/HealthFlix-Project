@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CommentList from './components/CommentList';
@@ -41,7 +40,7 @@ function App() {
   return (
     <div className="App">
       <h1>Comments Section</h1>
-      <CommentForm addComment={handleAddComment} />
+      <CommentForm addComment={handleAddComment} heading="Comment" />
 
       <div className="sort-options">
         <label>Sort by:</label>

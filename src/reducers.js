@@ -1,9 +1,8 @@
-// src/reducers.js
 import { ADD_COMMENT, DELETE_COMMENT, EDIT_COMMENT, ADD_REPLY, DELETE_REPLY, EDIT_REPLY, SET_SORT_ORDER } from './actions';
 
 const initialState = {
   comments: [],
-  sortOrder: 'newest', // Default sort order
+  sortOrder: 'newest', 
 };
 
 function rootReducer(state = initialState, action) {

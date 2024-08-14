@@ -1,9 +1,9 @@
 #comBox{
-    margin-left: 20%;
+    margin-left: 25%;
     margin-bottom: 5px;
     height: 22vh;
-    width: 50vw;
-    background-color: rgb(224, 213, 213);
+    width: 40vw;
+    background-color: #f6f6f6;
     padding: 5px;
     border-radius: 5px;
 }
@@ -11,25 +11,29 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 20vh;
-    width: 50vw;
+    height: 22vh;
+    width: 40vw;
 }
 
 input{
-    height: 2vh;
+    height: 4vh;
     margin: 20px;
 }
 textarea{
-    height: 4vh;
+    height: 6vh;
     margin: 0 20px 20px 20px;
 }
 
 button{
-    margin: 0 20px 20px 20px;
+    margin: 0 0px 0px 10px;
+}
+
+button:hover{
+    cursor: pointer;
 }
 
 #post{
-    background-color: rgb(43, 177, 218);
+    background-color: #4192f8;
     border-radius: 5px;
     height: 30px;
     margin: 0 20px 20px 85%;
