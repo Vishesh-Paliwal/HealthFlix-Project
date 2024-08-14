@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Comments Section with Redux and LocalStorage
+# Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a comments section built with React, Redux, and localStorage. It allows users to add, edit, delete, and reply to comments. Replies are nested directly under their parent comments, and both comments and replies can be sorted by date and time. The application persists its state using localStorage, ensuring that comments and sorting preferences are saved even after refreshing the page.
 
-## Available Scripts
+# Features
 
-In the project directory, you can run:
+   - Add Comments: Users can add new comments to the section.
+   - Reply to Comments: Users can reply to existing comments (nested replies are not supported).
+   - Edit Comments/Replies: Users can edit their comments or replies.
+   - Delete Comments/Replies: Users can delete their comments or replies.
+   - Sort Comments: Comments can be sorted by date and time, with replies within each comment being sorted accordingly.
+   - Persistent State: The state is saved to localStorage to preserve the comments and sorting order across sessions.
 
-### `npm start`
+# Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Before you begin, ensure you have the following installed on your local machine:
 
-### `npm test`
+   - Node.js (version 14.x or higher)
+   - npm (version 6.x or higher) or Yarn (version 1.x or higher)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Installation
 
-### `npm run build`
+     git clone git@github.com:Vishesh-Paliwa/HealthFlix-Project.git
+  
+cd to repo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install the dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Running the Application
 
-### `npm run eject`
+To start the development server, run:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The application will be available at http://localhost:3000.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+# Usage :
+# Adding a Comment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   - Enter your name and comment in the provided input fields.
+   - Click "Submit" to add the comment to the section.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Replying to a Comment
 
-### Code Splitting
+   - Click the "Reply" button under a comment.
+   - Enter your reply in the textarea that appears.
+   - Click "Reply" to add the reply under the comment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Editing or Deleting a Comment/Reply
 
-### Analyzing the Bundle Size
+   - Click the "Edit" or "Delete" button next to the comment or reply.
+   - If editing, modify the text and save your changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Sorting Comments
 
-### Making a Progressive Web App
+   - Use the sorting dropdown to choose between sorting by "Newest" or "Oldest."
+   - The comments and their replies will be sorted according to your selection.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Technologies Used
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   - React: A JavaScript library for building user interfaces.
+   - Redux: A predictable state container for JavaScript apps.
+   - localStorage: Web storage API for persisting state.
+   - CSS: For styling the application.
