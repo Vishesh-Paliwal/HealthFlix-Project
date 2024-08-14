@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
 import CommentList from './components/CommentList';
 import CommentForm from './components/CommentForm';
@@ -6,10 +5,8 @@ import CommentForm from './components/CommentForm';
 function App() {
   const [comments, setComments] = useState([]);
 
-  // Load comments from localStorage on component mount
   useEffect(() => {
     const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-    // Convert date strings back to Date objects
     const convertedComments = savedComments.map(comment => ({
       ...comment,
       date: new Date(comment.date),
@@ -21,7 +18,6 @@ function App() {
     setComments(convertedComments);
   }, []);
 
-  // Save comments to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem('comments', JSON.stringify(comments));
   }, [comments]);

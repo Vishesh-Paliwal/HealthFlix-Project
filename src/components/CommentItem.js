@@ -1,4 +1,4 @@
-// src/components/CommentItem.js
+import './CommentItem.css'
 import React, { useState } from 'react';
 import CommentForm from './CommentForm';
 
